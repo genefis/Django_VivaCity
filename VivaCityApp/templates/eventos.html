@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    {% load static %}
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1" />
+    <title>Agenda</title>
+    <link rel="stylesheet" href="{% static 'css/dashboard.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/eventos.css' %}" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+    <link rel="stylesheet"
+        href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css" />
+
+    <!-- Enlaces a las bibliotecas FullCalendar.js y jQuery -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/fullcalendar.min.css" />
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/fullcalendar.min.js"></script>
+
+    <!-- JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css" />
+    <!-- Default theme -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/default.min.css" />
+</head>
+
+<body>
+    <input type="checkbox" id="menu-toggle" />
+    <div class="sidebar">
+        <div class="side-header">
+            <img src="{% static 'img/LogoVC1.svg' %}" alt="Logo" />
+        </div>
+
+        <div class="side-content">
+            <div class="profile">
+                <div class="profile-img bg-img" style="
+							background-image: url({% static 'img/foto_usuario.webp' %});
+						"></div>
+                <h4>{{user.username | upper}}</h4>
+                <small>Usuario</small>
+            </div>
+
+            <div class="side-menu">
+                <ul>
+                    <li>
+                        <a href="{% url 'dashboard' %}">
+                            <span class="fa fa-home"></span>
+                            <small>Eventos</small>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{% url 'agenda' %}">
+                            <span class="fa fa-calendar"></span>
+                            <small>Agenda</small>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{% url 'hospedajes' %}">
+                            <span class="fas fa-hotel"></span>
+                            <small>Hospedaje</small>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{% url 'lugares' %}">
+                            <span class="fas fa-image"></span>
+                            <small>Lugares</small>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{% url 'rutas' %}">
+                            <span class="fas fa-street-view"></span>
+                            <small>Rutas</small>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="{% url 'bardisco' %}">
+                            <span class="fas fa-wine-bottle"></span>
+                            <small>Bar Disco</small>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{% url 'gastronomia' %}">
+                            <span class="fas fa-utensils"></span>
+                            <small>Gastronomía</small>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{% url 'shopping' %}">
+                            <span class="fas fa-cart-plus"></span>
+                            <small>Shopping</small>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="main-content">
+        <header>
+            <div class="header-content">
+                <label for="menu-toggle">
+                    <span class="las la-bars"></span>
+                </label>
+
+                <div class="header-menu">
+                    <div class="notify-icon">
+                        <span class="las la-envelope"></span>
+                        <span class="notify">4</span>
+                    </div>
+
+                    <div class="notify-icon">
+                        <span class="las la-bell"></span>
+                        <span class="notify">3</span>
+                    </div>
+
+
+                    <div class="user">
+                        <div class="bg-img"></div>
+                        <a href="{% url 'logout' %}" class="logout">
+                            <span class="las la-power-off"></span>
+                            <span>Logout</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <main>
+            <div class="page-header">
+                <h1>Agenda de Eventos</h1>
+                <small>Dashboard / Agenda</small>
+            </div>
+            <div class="seccion-calendario">
+                <div class="mis_eventos">
+                    {% for evento in mi_agenda %}
+                    <div class="evento_reservado">
+                        <span>{{ evento.nomEvento }}</span>
+                        <!-- <span style="font-size: .5rem;">{{ evento.fecha_inicio }}</span> -->
+                    </div>
+                    {% endfor %}
+                </div>
+                <div id="calendario" style="width: 70%; display: inline-block;"></div>
+            </div>
+        </main>
+        <script type="text/javascript">
+            var mi_agenda = JSON.parse(JSON.stringify({{ mi_agenda | safe}}))
+
+            var message = "{{error|safe}}";
+            if (message) alertify.error(message);
+            var mensaje = "{{mensaje|safe}}";
+            if (mensaje) alertify.success(mensaje);
+        </script>
+        <script src="{% static 'js/eventos.js' %}"></script>
+    </div>
+</body>
+
+</html>

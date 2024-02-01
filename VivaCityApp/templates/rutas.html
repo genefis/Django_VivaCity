@@ -1,0 +1,141 @@
+<!DOCTYPE html>  
+    <html lang="es">
+        <head>
+            {% load static %}
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+            <title>Admin Dashboard | Keyframe Effects</title>
+            <link rel="stylesheet" href="{% static 'css/dashboard.css' %}">
+            <link rel="stylesheet" href="{% static 'css/rutas.css' %}" />
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
+            <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+        
+            <!-- Incluye la API de Google Maps primero -->
+            <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA6p74-mod0ho09BJzeEGtZL716KMAw3G8&libraries=places"></script>
+            <!-- Luego incluye tus scripts -->
+            <script src="{% static 'js/rutas.js' %}"></script>
+        </head>
+
+    <body>
+        <input type="checkbox" id="menu-toggle">
+        <div class="sidebar">
+            <div class="side-header">
+                <img src="{% static 'img/LogoVC1.svg' %}" alt="Logo">
+            </div>
+            
+            <div class="side-content">
+                <div class="profile">
+                    <div class="profile-img bg-img" style="background-image: url({% static 'img/foto_usuario.webp' %})"></div>
+                    <h4>{{user.username | upper}}</h4>
+                    <small>Usuario</small>
+                </div>
+    
+                <div class="side-menu">
+                    <ul>
+                        <li>
+                           <a href="{% url 'dashboard' %}">
+                                <span class="fa fa-home"></span>
+                                <small>Eventos</small>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{% url 'agenda' %}">
+                                <span class="fa fa-calendar"></span>
+                                <small>Agenda</small>
+                            </a>
+                        </li>
+                        <li>
+                           <a href="{% url 'hospedajes' %}">
+                                <span class="fas fa-hotel"></span>
+                                <small>Hospedaje</small>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{% url 'lugares' %}">
+                                 <span class="fas fa-image"></span>
+                                 <small>Lugares</small>
+                             </a>
+                         </li>
+                        <li>
+                            <a href="{% url 'rutas' %}">
+                                <span class="fas fa-street-view"></span>
+                                <small>Rutas</small>
+                            </a>
+                        </li>
+
+                        <li>
+                           <a href="{% url 'bardisco' %}">
+                                <span class="fas fa-wine-bottle"></span>
+                                <small>Bar Disco</small>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{% url 'gastronomia' %}">
+                                 <span class="fas fa-utensils"></span>
+                                 <small>Gastronomía</small>
+                             </a>
+                         </li>
+                         <li>
+                            <a href="{% url 'shopping' %}">
+                                 <span class="fas fa-cart-plus"></span>
+                                 <small>Shopping</small>
+                             </a>
+                         </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <div class="main-content">
+            
+            <header>
+                <div class="header-content">
+                    <label for="menu-toggle">
+                        <span class="las la-bars"></span>
+                    </label>
+                    
+                    <div class="header-menu">
+                        <div class="notify-icon">
+                            <span class="las la-envelope"></span>
+                            <span class="notify">4</span>
+                        </div>
+                        
+                        <div class="notify-icon">
+                            <span class="las la-bell"></span>
+                            <span class="notify">3</span>
+                        </div>
+                        
+
+                        <div class="user">
+                            <div class="bg-img"></div>
+                            <a href="{% url 'logout' %}" class="logout">
+                                <span class="las la-power-off"></span>
+                                <span>Logout</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+                <main>
+
+                    <div class="page-header">
+                        <h1>Rutas</h1>
+                        <small>Rutas / Dashboard</small>
+                    </div>
+
+                    <div class="category-buttons">
+                        <button onclick="showHotels()">Hoteles</button>
+                        <button onclick="showRestaurants()">Restaurantes</button>
+                        <button onclick="showParks()">Parques</button>
+                        <button onclick="showParks()">Cafeterías</button>
+                        <button onclick="showParks()">Farmacias</button>
+                        <button onclick="showParks()">Centros de salud</button>
+                        <!-- Agrega más botones según las categorías que necesites -->
+                    </div>
+
+                    <div id="map"></div>
+                </main>
+        </div>
+    </body>
+    </html>

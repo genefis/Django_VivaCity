@@ -1,0 +1,37 @@
+body {
+	font-family: Arial, sans-serif;
+	margin: 0;
+	padding: 0;
+}
+
+.seccion-calendario {
+	display: flex;
+	justify-content: center;
+	padding: 2% 0;
+}
+
+.mis_eventos {
+	flex: 1 !important;
+	height: max-content !important;
+	overflow-y: scroll;
+	min-width: 200px;
+}
+
+.evento_reservado {
+	font-size: 1rem;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	background-color: beige;
+	margin: 5px 0;
+	border-radius: 10px;
+}
+
+.evento_reservado span {
+	padding-left: 10px !important;
+}
+
+#calendario {
+	width: 20%;
+	max-width: 70%;
+}

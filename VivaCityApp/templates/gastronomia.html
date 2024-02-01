@@ -1,0 +1,379 @@
+<!DOCTYPE html>  
+    <html lang="es">
+    <head>
+      {% load static %}
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+        <title>Admin Dashboard | Hospedaje</title>
+        <link rel="stylesheet" href="{% static 'css/dashboard.css' %}">
+        <link rel="stylesheet" href="{% static 'css/hospedaje.css' %}">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
+        <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
+   
+        <!-- JavaScript -->
+		<script src="https://cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
+
+		<!-- CSS -->
+		<link
+			rel="stylesheet"
+			href="https://cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css" />
+		<!-- Default theme -->
+		<link
+			rel="stylesheet"
+			href="https://cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/default.min.css" />
+    </head>
+
+    <body>
+        <input type="checkbox" id="menu-toggle">
+        <div class="sidebar">
+            <div class="side-header">
+                <img src="{% static 'img/LogoVC1.svg' %}" alt="Logo">
+            </div>
+            
+            <div class="side-content">
+                <div class="profile">
+                    <div class="profile-img bg-img" style="background-image: url({% static 'img/foto_usuario.webp' %})"></div>
+                    <h4>{{user.username | upper}}</h4>
+                    <small>Usuario</small>
+                </div>
+    
+                <div class="side-menu">
+                    <ul>
+                        <li>
+                           <a href="{% url 'dashboard' %}">
+                                <span class="fa fa-home"></span>
+                                <small>Eventos</small>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{% url 'agenda' %}">
+                                <span class="fa fa-calendar"></span>
+                                <small>Agenda</small>
+                            </a>
+                        </li>
+                        <li>
+                           <a href="{% url 'hospedajes' %}">
+                                <span class="fas fa-hotel"></span>
+                                <small>Hospedaje</small>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{% url 'lugares' %}">
+                                 <span class="fas fa-image"></span>
+                                 <small>Lugares</small>
+                             </a>
+                         </li>
+                        <li>
+                            <a href="{% url 'rutas' %}">
+                                <span class="fas fa-street-view"></span>
+                                <small>Rutas</small>
+                            </a>
+                        </li>
+
+                        <li>
+                           <a href="{% url 'bardisco' %}">
+                                <span class="fas fa-wine-bottle"></span>
+                                <small>Bar Disco</small>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{% url 'gastronomia' %}">
+                                 <span class="fas fa-utensils"></span>
+                                 <small>Gastronomía</small>
+                             </a>
+                         </li>
+                         <li>
+                            <a href="{% url 'shopping' %}">
+                                 <span class="fas fa-cart-plus"></span>
+                                 <small>Shopping</small>
+                             </a>
+                         </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <div class="main-content">
+            
+            <header>
+                <div class="header-content">
+                    <label for="menu-toggle">
+                        <span class="las la-bars"></span>
+                    </label>
+                    
+                    <div class="header-menu">
+                        <div class="notify-icon">
+                            <span class="las la-envelope"></span>
+                            <span class="notify">4</span>
+                        </div>
+                        
+                        <div class="notify-icon">
+                            <span class="las la-bell"></span>
+                            <span class="notify">3</span>
+                        </div>
+
+                        <div class="user">
+                            <div class="bg-img"></div>
+                            <a href="{% url 'logout' %}" class="logout">
+                                <span class="las la-power-off"></span>
+                                <span>Logout</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            
+            
+            <main>
+                
+                <div class="page-header">
+                    <h1>Gastronomía</h1>
+                    <small>Gastronomía / Dashboard</small>
+                </div>
+            
+                <div class="page-content">
+                    
+                        <div class="wrapper">
+                            <div class="container">
+                                <input type="radio" name="slide" id="c1" checked>
+                                <label for="c1" class="card">
+                                    <div class="row">
+                                        <div class="icon">1</div>
+                                        <div class="description">
+                                            <h4>Winter</h4>
+                                            <p>Winter has so much to offer -
+                                             creative activities</p>
+                                        </div>
+                                    </div>
+                                </label>
+                                <input type="radio" name="slide" id="c2" >
+                                <label for="c2" class="card">
+                                    <div class="row">
+                                        <div class="icon">2</div>
+                                        <div class="description">
+                                            <h4>Digital Technology</h4>
+                                            <p>Gets better every day -
+                                             stay tuned</p>
+                                        </div>
+                                    </div>
+                                </label>
+                                <input type="radio" name="slide" id="c3" >
+                                <label for="c3" class="card">
+                                    <div class="row">
+                                        <div class="icon">3</div>
+                                        <div class="description">
+                                            <h4>Globalization</h4>
+                                            <p>Help people all over the world</p>
+                                        </div>
+                                    </div>
+                                </label>
+                                <input type="radio" name="slide" id="c4" >
+                                <label for="c4" class="card">
+                                    <div class="row">
+                                        <div class="icon">4</div>
+                                        <div class="description">
+                                            <h4>New technologies</h4>
+                                            <p>Space engineering becomes
+                                             more and more advanced</p>
+                                        </div>
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+                </div>
+    
+    
+                    <div class="records table-responsive">
+    
+                        <div class="record-header">
+                            <div class="add">
+                                <span>Cantones</span>
+                                <select name="" id="">
+                                    <option value="">----</option>
+                                    <option value="">Loja</option>
+                                    <option value="">Catamayo</option>
+                                </select>
+                                <button>Buscar</button>
+                            </div>
+    
+                            <div class="browse">
+                               <input type="search" placeholder="Buscar" class="record-search">
+                                <select name="" id="">
+                                    <option value="">--Estado--</option>
+                                    <option value="">Activo</option>
+                                    <option value="">Inactivo</option>
+                                    <option value="">Pendiente</option>
+                                </select>
+                            </div>
+                        </div>
+    
+                        <div>
+                            <table width="100%">
+                                <thead>
+                                    <tr>
+                                        <th>ID LOCAL</th>
+                                        <th><span class="las la-sort"></span>ALMACEN</th>
+                                        <th><span class="las la-sort"></span>CANTÓN</th>
+                                        <th><span class="las la-sort"></span>HORARIO DE ATENCIÓN</th>
+                                        <th><span class="las la-sort"></span>DESCRIPCIÓN</th>
+                                        <th><span class="las la-sort"></span>ESTADO/RESERVA</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>#5033</td>
+                                        <td>
+                                            <div class="client">
+                                               <div class="client-img bg-img" style="background-image: url({% static 'img/FERIA.jpg' %})"></div>
+                                                <div class="client-info">
+                                                    <h4>HELADERÍA</h4>
+                                                    <small>HELADERIA@uotlook.org</small>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            Loja
+                                        </td>
+                                        <td>
+                                            7AM - 9PM
+                                        </td>
+                                        <td>
+                                            Lorem Ipsum Dolor Sit Amet Consectetur Adipisicing Elit.
+                                        </td>
+                                        <td>
+                                            <div class="add2">
+                                                <span class="paid">Activo</span>
+                                                <button>Reservar</button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>#5033</td>
+                                        <td>
+                                            <div class="client">
+                                               <div class="client-img bg-img" style="background-image: url({% static 'img/FERIA.jpg' %})"></div>
+                                                <div class="client-info">
+                                                    <h4>HELADERÍA</h4>
+                                                    <small>HELADERIA@uotlook.org</small>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            Loja
+                                        </td>
+                                        <td>
+                                            7AM - 9PM
+                                        </td>
+                                        <td>
+                                            Lorem Ipsum Dolor Sit Amet Consectetur Adipisicing Elit.
+                                        </td>
+                                        <td>
+                                            <div class="add2">
+                                                <span class="paid">Activo</span>
+                                                <button>Reservar</button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>#5033</td>
+                                        <td>
+                                            <div class="client">
+                                               <div class="client-img bg-img" style="background-image: url({% static 'img/FERIA.jpg' %})"></div>
+                                                <div class="client-info">
+                                                    <h4>HELADERÍA</h4>
+                                                    <small>HELADERIA@uotlook.org</small>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            Loja
+                                        </td>
+                                        <td>
+                                            7AM - 9PM
+                                        </td>
+                                        <td>
+                                            Lorem Ipsum Dolor Sit Amet Consectetur Adipisicing Elit.
+                                        </td>
+                                        <td>
+                                            <div class="add2">
+                                                <span class="paid">Activo</span>
+                                                <button>Reservar</button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>#5033</td>
+                                        <td>
+                                            <div class="client">
+                                               <div class="client-img bg-img" style="background-image: url({% static 'img/FERIA.jpg' %})"></div>
+                                                <div class="client-info">
+                                                    <h4>HELADERÍA</h4>
+                                                    <small>HELADERIA@uotlook.org</small>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            Loja
+                                        </td>
+                                        <td>
+                                            7AM - 9PM
+                                        </td>
+                                        <td>
+                                            Lorem Ipsum Dolor Sit Amet Consectetur Adipisicing Elit.
+                                        </td>
+                                        <td>
+                                            <div class="add2">
+                                                <span class="paid">Activo</span>
+                                                <button>Reservar</button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>#5033</td>
+                                        <td>
+                                            <div class="client">
+                                               <div class="client-img bg-img" style="background-image: url({% static 'img/FERIA.jpg' %})"></div>
+                                                <div class="client-info">
+                                                    <h4>HELADERÍA</h4>
+                                                    <small>HELADERIA@uotlook.org</small>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            Loja
+                                        </td>
+                                        <td>
+                                            7AM - 9PM
+                                        </td>
+                                        <td>
+                                            Lorem Ipsum Dolor Sit Amet Consectetur Adipisicing Elit.
+                                        </td>
+                                        <td>
+                                            <div class="add2">
+                                                <span class="paid">Activo</span>
+                                                <button>Reservar</button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    
+                                </tbody>
+                            </table>
+                        </div>
+    
+                    </div>
+                
+                </div>
+                
+            </main>
+            
+        </div>
+        <script src='https://cdnjs.cloudflare.com/ajax/libs/Swiper/8.4.5/swiper-bundle.min.js'></script>
+        <script  src="{% static 'js/swiper-bundle.min.js' %}"></script>
+        <script  src="{% static 'js/hospedaje.js' %}"></script>
+        <script type="text/javascript">
+			var message = "{{error|safe}}";
+			if (message) alertify.error(message);
+		</script>
+    </body>
+    </html>

@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    {% load static %}
+    
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Viva City</title>
+
+    <!-- font awesome cdn link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <!-- custom css file link  -->
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+
+    <!-- custom js file link  -->
+    <script src="{% static 'js/index.js' %}" defer></script>
+</head>
+
+<body>
+
+    <!-- header section starts  -->
+
+    <header class="header">
+
+        <div id="menu-btn" class="fas fa-bars"></div>
+
+        <a href=""><div class="logo">
+            <img src="{% static 'img/LogoVCity.png' %}" alt="Logo">
+        </div></a>
+
+
+        <nav class="navbar">
+            <a data-aos="zoom-in-left" data-aos-delay="300" href="#home">Inicio</a>
+            <a data-aos="zoom-in-left" data-aos-delay="450" href="#about">Sobre Nosotros</a>
+            <a data-aos="zoom-in-left" data-aos-delay="750" href="#services">Servicios</a>
+            <a data-aos="zoom-in-left" data-aos-delay="600" href="#destination">Destinos</a>
+            <a data-aos="zoom-in-left" data-aos-delay="900" href="#gallery">Galería</a>
+            <a data-aos="zoom-in-left" data-aos-delay="1150" href="#blogs">Blog</a>
+        </nav>
+
+        <a data-aos="zoom-in-left" data-aos-delay="1300" href="{% url 'signin' %}" class="btn">Ingresa Ahora</a>
+
+    </header>
+
+    <!-- header section ends -->
+
+    <!-- home section starts  -->
+
+    <section class="home" id="home">
+        <div class="content">
+            <span class="titulo" data-aos="fade-up" data-aos-delay="150">Bienvenido</span>
+            <h3 data-aos="fade-up" data-aos-delay="150">Viva City</h3>
+            <p data-aos="fade-up" data-aos-delay="450">Descubre el destino perfecto para ti con nuestra ayuda. </p>
+            <a data-aos="fade-up" data-aos-delay="600" href="{% url 'login_register' %}" class="btn">Ingresa Ahora</a>
+        </div>
+    
+
+    </section>
+
+
+
+    <section class="book-form" id="book-form">
+
+        <form action="">
+            <div data-aos="" data-aos-delay="150" class="inputBox">
+                <span>¿Qué evento buscas?</span>
+                <input type="text" placeholder="Nombre del evento" value="">
+            </div>
+            <div data-aos="" data-aos-delay="300" class="inputBox">
+                <span>Fecha del evento</span>
+                <input type="date" value="">
+            </div>
+            <div data-aos="" data-aos-delay="450" class="inputBox">
+                <span>Ciudad</span>
+                <input type="text" placeholder="Lugar del evento" value="">
+            </div>
+            <input data-aos="" data-aos-delay="600" type="submit" value="Buscar" class="btn">
+        </form>
+
+    </section>
+
+    <!-- booking form section ends -->
+
+    <!-- about section starts  -->
+
+    <section class="about" id="about">
+
+        <div class="video-container" data-aos="fade-right" data-aos-delay="300">
+            <video src="{% static 'img/VCity_video.mp4' %}" muted autoplay loop class="video"></video>
+        </div>
+
+        <div class="content" data-aos="fade-left" data-aos-delay="600">
+            <span><h4>Sobre Nosotros</h4></span>
+            <h3>Descubre lugares increíbles</h3>
+            <p>   
+            Descubre la fascinante mezcla de belleza natural y riqueza cultural que ofrece la provincia de Loja. 
+            Cada rincón de esta encantadora ciudad guarda un tesoro esperando ser descubierto. Desde sus 
+            exuberantes paisajes hasta sus vibrantes tradiciones, Loja te invita a aventurarte y explorar 
+            lugares sorprendentes que capturarán tu corazón. ¡Atrévete a sumergirte en la autenticidad de 
+            esta joya escondida y deja que sus maravillas te cautiven!</p>
+            <a href="#" class="btn">Leer Más</a>
+        </div>
+
+    </section>
+
+    <!-- about section ends -->
+
+    <!-- services section starts  -->
+
+    <section class="services" id="services">
+
+        <div class="heading">
+            <span><h4>Ofrecemos</h4></span>
+            <h1>Nuestros Servicios</h1>
+        </div>
+
+        <div class="box-container">
+
+            <div class="box" data-aos="zoom-in-up" data-aos-delay="150">
+                <i class="fas fa-map"></i>
+                <h3>Lugares</h3>
+                <p>Descubre la magia de lugares que te robar el aliento y te llenarán de recuerdos inolvidables en tu corazón.
+                </p>
+            </div>
+
+            <div class="box" data-aos="zoom-in-up" data-aos-delay="300">
+                <i class="fas fa-hiking"></i>
+                <h3>Aventura</h3>
+                <p>Embárcate en aventuras que despierten tu espíritu explorador y emociones que te lleven más allá de tus límites.</p>
+            </div>
+
+            <div class="box" data-aos="zoom-in-up" data-aos-delay="450">
+                <i class="fas fa-utensils"></i>
+                <h3>Comida y Bebidas</h3>
+                <p>Disfruta de la exquisitez de nuestros sabores, donde cada bocado es una experiencia única para tu paladar.</p>
+            </div>
+
+            <div class="box" data-aos="zoom-in-up" data-aos-delay="600">
+                <i class="fas fa-hotel"></i>
+                <h3>Hoteles</h3>
+                <p>Bienvenido a tu hogar lejos de casa, donde la comodidad y el lujo se fusionan para crear una experiencia inolvidable.</p>
+            </div>
+
+            <div class="box" data-aos="zoom-in-up" data-aos-delay="750">
+                <i class="fas fa-calendar"></i>
+                <h3>Eventos</h3>
+                <p>Celebra momentos especiales en espacios que hacen que cada evento sea inolvidable y lleno de alegría.</p>
+            </div>
+
+            <div class="box" data-aos="zoom-in-up" data-aos-delay="900">
+                <i class="fas fa-headset"></i>
+                <h3>24/7 Soporte</h3>
+                <p>La tranquilidad de saber que estamos a tu disposición en cualquier momento del día. Tu comodidad es nuestra prioridad.</p>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- services section ends -->
+
+    <!-- destination section starts  -->
+
+            <section class="destination" id="destination">
+                <div class="heading">
+                    <span><h4>Nuestro Destino</h4></span>
+                    <h1>Descubre Nuevos Lugares</h1>
+                </div>
+                <div class="box-container">
+                   
+                    <div class="box" data-aos="fade-up" data-aos-delay="150">
+                        <div class="image">
+                            <img src="{% static '/destinations/images/IMG_20170923_073532-1.jpg' %}" alt="">
+                        </div>
+                        <div class="content">
+                            <h3>Parque Bolívar</h3>
+                            <p>Fue construido como homenaje al Tratado Binacional de Paz de Itamaraty. Es perfecto para pasear sin alejarse del centro.
+                            </p>
+                            <a href="#">Leer Más <i class="fas fa-angle-right"></i></a>
+                        </div>
+                    </div>
+                    
+                    <div class="box" data-aos="fade-up" data-aos-delay="150">
+                        <div class="image">
+                            <img src="{% static '/destinations/images/dsds.png' %}" alt="">
+                        </div>
+                        <div class="content">
+                            <h3>Parque de las Flores</h3>
+                            <p>Es un lugar icónico en el que encuentra una variedad de arreglos florales atractivos para obsequiar en cualquier ocasión.</p>
+                            <a href="#">Leer Más <i class="fas fa-angle-right"></i></a>
+                        </div>
+                    </div>
+
+
+                    <div class="box" data-aos="fade-up" data-aos-delay="150">
+                        <div class="image">
+                            <img src="{% static '/destinations/images/fe.jpg' %}" alt="">
+                        </div>
+                        <div class="content">
+                            <h3>Parque Pucará</h3>
+                            <p>La ciudad de Loja tiene varios espacios naturales para visitar con amigos, pareja o familia, esta opcion es el Parque Pucará.</p>
+                            <a href="#">Leer Más <i class="fas fa-angle-right"></i></a>
+                        </div>
+                    </div>
+                    
+                    <div class="box" data-aos="fade-up" data-aos-delay="150">
+                        <div class="image">
+                            <img src="{% static '/destinations/images/R.jpg' %}" alt="">
+                        </div>
+                        <div class="content">
+                            <h3>Parque Infantil</h3>
+                            <p>Es perfecto para disfrutar, cuenta con juegos para los más pequeños, y con canchas para practicar deportes y atletismo.</p>
+                            <a href="#">Leer Más <i class="fas fa-angle-right"></i></a>
+                        </div>
+                    </div>
+
+                    <div class="box" data-aos="fade-up" data-aos-delay="150">
+                        <div class="image">
+                            <img src="{% static '/destinations/images/maxresdefault.jpg' %}" alt="">
+                        </div>
+                        <div class="content">
+                            <h3>Parque Jipiro</h3>
+                            <p>Es único en el país gracias a su composición, resaltando la presencia de nueve Troncos etno-culturales representados mediante réplicas.
+                            </p>
+                            <a href="#">Leer Más <i class="fas fa-angle-right"></i></a>
+                        </div>
+                    </div>
+                    
+                    <div class="box" data-aos="fade-up" data-aos-delay="150">
+                        <div class="image">
+                            <img src="{% static '/destinations/images/muelle.jpg' %}" alt="">
+                        </div>
+                        <div class="content">
+                            <h3>Parque Daniel Álvarez</h3>
+                            <p>Se puede disfrutar de paseos en bote, juegos infantiles y canchas, siendo un lugar propicio para el descanso en familia o con amigos.</p>
+                            <a href="#">Leer Más <i class="fas fa-angle-right"></i></a>
+                        </div>
+                    </div>
+
+                    <div class="box" data-aos="fade-up" data-aos-delay="150">
+                        <div class="image">
+                            <img src="{% static '/destinations/images/San_sebastian.jpg' %}" alt="">
+                        </div>
+                        <div class="content">
+                            <h3>Plaza de San Sebastián</h3>
+                            <p>También conocida como Plaza de la Independencia, es un escenario ideal para espectáculos artísticos y culturales, y su arquitectura histórica. </p>
+                            <a href="#">Leer Más <i class="fas fa-angle-right"></i></a>
+                        </div>
+                    </div>
+                    
+                    <div class="box" data-aos="fade-up" data-aos-delay="150">
+                        <div class="image">
+                            <img src="{% static '/destinations/images/Parque_lineal.jpg' %}" alt="">
+                        </div>
+                        <div class="content">
+                            <h3>Parque Lineal</h3>
+                            <p>Es un lugar popular para una variedad de actividades al aire libre, como: Caminar, Ciclear , Jugar, Picnic, Ejercicio y disfrutar de la naturaleza.</p>
+                            <a href="#">Leer Más <i class="fas fa-angle-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+    <!-- destination section ends -->
+
+    <!-- gallery section starts  -->
+
+
+<!-- index.html -->
+<section class="gallery" id="gallery">
+
+    <div class="heading">
+        <span><h4>Nuestra galería</h4></span>
+        <h1>Los recuerdos duran para siempre</h1>
+    </div>
+
+    <div class="box-container">
+
+        <div class="box" data-aos="zoom-in-up" data-aos-delay="{{ gallery_image.0.aos_delay }}">
+            <img src="{% static '/gallery/images/hqdefault.jpg' %}" alt="">
+            <span>Miles de jóvenes se dieron cita a la Puerta de la Ciudad para participar en el mega evento que puso a bailar, brincar y hacer piruetas a la juventud.</span>
+            <h3>Concierto de Electrónica</h3>
+        </div>
+        <div class="box" data-aos="zoom-in-up" data-aos-delay="{{ gallery_image.1.aos_delay }}">
+            <img src="{% static '/gallery/images/artes-vivas_IaGSWVG.jpg' %}" alt="">
+            <span>Es el mayor encuentro artístico garantiza el ejercicio de los derechos culturales de la ciudadanía e inició en 2016, y desde 2018 fue reconocido en Ecuador.</span>
+            <h3>Artes Vivas Loja</h3>
+        </div>
+
+        <div class="box" data-aos="zoom-in-up" data-aos-delay="{{ gallery_image.aos_delay }}">
+            <img src="{% static '/gallery/images/Estadio_c6o0Qzl.jpg' %}" alt="">
+            <span>Fue inaugurado el 7 de septiembre de 1980. Es usado mayoritariamente para la práctica del fútbol, y allí juega como local la Libertad Fútbol Club.</span>
+            <h3>Estadio Reina del Cisne</h3>
+        </div>
+
+        <div class="box" data-aos="zoom-in-up" data-aos-delay="{{ gallery_image.aos_delay }}">
+            <img src="{% static '/gallery/images/192-feria-de-Loja-se-realizara-d.jpg' %}" alt="">
+            <span>Es un proyecto que busca motivar, acompañar, financiar e insertar en los mercados a iniciativas de emprendimiento en etapa inicial y de fortalecimiento.</span>
+            <h3>Feria de Loja</h3>
+        </div>
+
+        <div class="box" data-aos="zoom-in-up" data-aos-delay="{{ gallery_image.aos_delay }}">
+            <img src="{% static '/gallery/images/funda_NCGxfmD.jpg' %}" alt="">
+            <span>Fue fundada el 8 de diciembre de 1548, por Alonso de Mercadillo, es uno de los principales núcleos urbanos debido a su desarrollo y ubicación geográfica.</span>
+            <h3>Fundación de Loja</h3>
+        </div>
+        <div class="box" data-aos="zoom-in-up" data-aos-delay="{{ gallery_image.aos_delay }}">
+            <img src="{% static '/gallery/images/maxresdefault_1.jpg' %}" alt="">
+            <span>Participaron unidades militares de la región sur como son batallones Carchi, Capitán Díaz, Macará, Zumba, Cabo Minacho, entre otras.</span>
+            <h3>Desfile Militar</h3>
+        </div>
+  
+    </div>
+</section>
+
+    <!-- gallery section ends -->
+
+    <!-- review section starts  -->
+
+    <section class="review">
+        <div class="box-container" data-aos="fade-right" data-aos-delay="300">
+     
+                <div class="box">
+                    <p>Descubrir cómo la ciudad interactúa contigo ha cambiado por completo mi perspectiva.</p>
+                    <div class="user">
+                        <img src="{% static '/testimonios/images/277464925_4986407478112122_6228289546936113221_n_4.jpg' %}" alt="">
+                        <div class="info">
+                            <h3>Renny Poma</h3>
+                            <span>Usuario</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="box">
+                    <p>La ciudad es como un festival continuo que se adapta a mis gustos musicales.</p>
+                    <div class="user">
+                        <img src="{% static '/testimonios/images/132539071_3522233327873025_857641843228083686_n.jpg' %}" alt="">
+                        <div class="info">
+                            <h3>Génesis González</h3>
+                            <span>Usuario</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="box">
+                    <p>Explorar mi ciudad desde una perspectiva histórica ha sido revelador.</p>
+                    <div class="user">
+                        <img src="{% static '/testimonios/images/245827251_1256840014741797_4914849954407839535_n.jpg' %}" alt="">
+                        <div class="info">
+                            <h3>Jhoel Ordoñez</h3>
+                            <span>Usuario</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="box">
+                    <p>Cada esquina de la ciudad es una oportunidad para capturar momentos especiales. </p>
+                    <div class="user">
+                        <img src="{% static '/testimonios/images/352178428_1868393150207608_1969695101380176790_n.jpg' %}" alt="">
+                        <div class="info">
+                            <h3>Jamil Quituizaca</h3>
+                            <span>Usuario</span>
+                        </div>
+                    </div>
+                </div>
+
+        </div>
+
+        <div class="content" data-aos="fade-left" data-aos-delay="600">
+            <span><h4>Testimonios</h4></span>
+            <h3>Buenas noticias de nuestros clientes</h3>
+            <p>Explora la plenitud de la satisfacción de nuestros clientes al sumergirte 
+                en sus experiencias positivas. Los testimonios que compartimos son la voz 
+                auténtica de quienes han experimentado la excelencia en nuestros servicios. 
+                Cada historia es un testimonio elocuente de nuestra dedicación y compromiso. 
+                Nos llena de gratitud que formes parte de nuestro éxito compartido. Gracias 
+                por confiar en nosotros y ser parte integral de esta emocionante travesía 
+                hacia la excelencia. Los elogios de nuestros clientes son un reflejo claro 
+                de la calidad que ofrecemos y la conexión duradera que hemos cultivado juntos.</p>
+        </div>
+
+    </section>
+
+    <!-- review section ends -->
+
+    <!-- banner section starts  -->
+
+    <div class="banner">
+        <div class="content" data-aos="zoom-in-up" data-aos-delay="300">
+            <span><h4>Comienza tus Aventuras</h4></span>
+            <h3>Exploremos el mundo con nosotros</h3>
+            <p>!Embárcate en tus aventuras con nosotros y descubre un mundo lleno de posibilidades. 
+                Juntos, exploraremos horizontes desconocidos y crearemos recuerdos inolvidables. 
+                ¿Estás listo para el viaje? ¡Únete a nosotros y haz que cada día sea una nueva y 
+                emocionante aventura!</p>
+            <a href="{% url 'login_register' %}" class="btn">Agendar Ahora</a>
+            
+        </div>
+
+    </div>
+
+    <!-- banner section ends -->
+
+    <!-- blogs section starts  -->
+    <section class="blogs" id="blogs">
+        <div class="heading">
+            <span><h4>Blog y Publicaciones</h4></span>
+            <h1>Experiencia en palabras</h1>
+        </div>
+        <div class="box-container">
+         
+            <div class="box" data-aos="fade-up" data-aos-delay="{% widthratio forloop.counter 1 150 %}">
+                <div class="image">
+                    <img src="{% static '/blog/images/R.jpg' %}" alt="{{ post.title }}">
+                </div>
+                <div class="content">
+                    <a href="#" class="link">Orquesta</a>
+                    <p>La Orquesta Sinfónica de Loja, una de las más destacadas expresiones del arte sinfónico en el Ecuador, está encargada 
+                        de interpretar y difundir el repertorio sinfónico nacional, latinoamericano y universal. </p>
+                    <div class="icon">
+                        <a href="#"><i class="fas fa-clock"></i>Enero 2, 2024</a>
+                        <a href="#"><i class="fas fa-user"></i>Orquesta</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="box" data-aos="fade-up" data-aos-delay="{% widthratio forloop.counter 1 150 %}">
+                <div class="image">
+                    <img src="{% static '/blog/images/arte-y-cultura_755653_20221225100820.jpg' %}" alt="{{ post.title }}">
+                </div>
+                <div class="content">
+                    <a href="#" class="link">Artes Vivas Loja</a>
+                    <p>El Festival Internacional de Artes Vivas Loja se desarrollará del 15 al 25 de noviembre de 2024, con una variada 
+                        programación artística y cultural que girará en torno al concepto ‘‘Encuentros en movimiento’’.</p>
+                    <div class="icon">
+                        <a href="#"><i class="fas fa-clock"></i>Noviembre 15, 2024</a>
+                        <a href="#"><i class="fas fa-user"></i>Artes Vivas</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="box" data-aos="fade-up" data-aos-delay="{% widthratio forloop.counter 1 150 %}">
+                <div class="image">
+                    <img src="{% static '/blog/images/52533434101_760c8a32f2_o_1_0.jpg' %}" alt="{{ post.title }}">
+                </div>
+                <div class="content">
+                    <a href="#" class="link">Evento UTPL</a>
+                    <p>La Universidad Técnica Particular de Loja inicia un nuevo periodo académico; un hito que se celebra en acto solemne y 
+                        que reconoce también la dedicación y esfuerzo de sus docentes que se incorporan al Claustro de doctores.</p>
+                    <div class="icon">
+                        <a href="#"><i class="fas fa-clock"></i>Febrero 24, 2024 </a>
+                        <a href="#"><i class="fas fa-user"></i>UTPL</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- blogs section ends -->
+
+    <!-- footer section starts  -->
+
+    <section class="footer">
+
+        <div class="box-container">
+
+            <div class="box" data-aos="fade-up" data-aos-delay="150">
+                <a href=""><div class="logo">
+                    <img src="{% static 'img/Logo2.png' %}" alt="Venue Logo">
+                </div></a>
+                <p>¡Síguenos para mantenerte al tanto de todas las novedades! </p>
+                
+                <div class="share">
+                    <a href="#" class="fab fa-facebook-f"></a>
+                    <a href="#" class="fab fa-twitter"></a>
+                    <a href="#" class="fab fa-instagram"></a>
+                    <a href="#" class="fab fa-linkedin"></a>
+                </div>
+            </div>
+
+            <div class="box" data-aos="fade-up" data-aos-delay="300">
+                <h3>Enlaces rapidos</h3>
+                <a href="#home" class="links"> <i class="fas fa-arrow-right"></i> Inicio </a>
+                <a href="#about" class="links"> <i class="fas fa-arrow-right"></i> Sobre Nosotros </a>
+                <a href="#destination" class="links"> <i class="fas fa-arrow-right"></i> Destinos </a>
+                <a href="#services" class="links"> <i class="fas fa-arrow-right"></i> Servicios </a>
+                <a href="#gallery" class="links"> <i class="fas fa-arrow-right"></i> Galería </a>
+                <a href="#blogs" class="links"> <i class="fas fa-arrow-right"></i> Blogs </a>
+            </div>
+
+            <div class="box" data-aos="fade-up" data-aos-delay="450">
+                <h3>Contacto</h3>
+                <p> <i class="fas fa-map"></i> Loja - Ecuador </p>
+                <p> <i class="fas fa-phone"></i> 0988793687 </p>
+                <p> <i class="fas fa-envelope"></i> rennypoma684@mail.com </p>
+                <p> <i class="fas fa-clock"></i> 7:00am - 10:00pm </p>
+            </div>
+
+            <div class="box" data-aos="fade-up" data-aos-delay="600">
+                <h3>¡Únete a Viva City!</h3>
+                <p>Se parte de nuestra comunidad</p>
+                <a href="{% url 'login_register' %}" class="btn">¡Únete!</a>
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- footer section ends -->
+
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+
+    <script>
+
+        AOS.init({
+            duration: 800,
+            offset: 150,
+        });
+
+    </script>
+
+</body>
+
+</html>
